@@ -99,9 +99,10 @@ namespace Lackey
 
 			if (e.KeyCode == Keys.Capital)
 				SimulateKeyDown(e, VirtualKeyCode.RCONTROL);
-
 			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyDown(e, VirtualKeyCode.LCONTROL);
+			if (e.KeyCode == Keys.OemBackslash)
+				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
 			{
@@ -196,9 +197,10 @@ namespace Lackey
 
 			if (e.KeyCode == Keys.Capital)
 				SimulateKeyUp(e, VirtualKeyCode.RCONTROL);
-
 			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
+			if (e.KeyCode == Keys.OemBackslash)
+				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
 			{
