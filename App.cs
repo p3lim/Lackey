@@ -199,6 +199,74 @@ namespace Lackey
 
 			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
+
+			if (isFnHeld)
+			{
+				if (e.KeyCode == Keys.Z)
+					e.SuppressKeyPress = true;
+				else if (e.KeyCode == Keys.X)
+					e.SuppressKeyPress = true;
+				else if (e.KeyCode == Keys.C)
+					e.SuppressKeyPress = true;
+				else if (e.KeyCode == Keys.D3 && e.Shift)
+					e.SuppressKeyPress = true;
+				else if (e.KeyCode == Keys.D4 && e.Shift)
+					e.SuppressKeyPress = true;
+				else if (e.KeyCode == Keys.Escape && !e.Shift)
+					SimulateKeyUp(e, VirtualKeyCode.OEM_3);
+				else if (e.KeyCode == Keys.D1)
+					SimulateKeyUp(e, VirtualKeyCode.F1);
+				else if (e.KeyCode == Keys.D2)
+					SimulateKeyUp(e, VirtualKeyCode.F2);
+				else if (e.KeyCode == Keys.D3)
+					SimulateKeyUp(e, VirtualKeyCode.F3);
+				else if (e.KeyCode == Keys.D4)
+					SimulateKeyUp(e, VirtualKeyCode.F4);
+				else if (e.KeyCode == Keys.D5)
+					SimulateKeyUp(e, VirtualKeyCode.F5);
+				else if (e.KeyCode == Keys.D6)
+					SimulateKeyUp(e, VirtualKeyCode.F6);
+				else if (e.KeyCode == Keys.D7)
+					SimulateKeyUp(e, VirtualKeyCode.F7);
+				else if (e.KeyCode == Keys.D8)
+					SimulateKeyUp(e, VirtualKeyCode.F8);
+				else if (e.KeyCode == Keys.D9)
+					SimulateKeyUp(e, VirtualKeyCode.F9);
+				else if (e.KeyCode == Keys.D0)
+					SimulateKeyUp(e, VirtualKeyCode.F10);
+				else if (e.KeyCode == Keys.OemMinus)
+					SimulateKeyUp(e, VirtualKeyCode.F11);
+				else if (e.KeyCode == Keys.Oemplus)
+					SimulateKeyUp(e, VirtualKeyCode.F12);
+				else if (e.KeyCode == Keys.OemOpenBrackets)
+					SimulateKeyUp(e, VirtualKeyCode.HOME);
+				else if (e.KeyCode == Keys.Oem7)
+					SimulateKeyUp(e, VirtualKeyCode.END);
+				else if (e.KeyCode == Keys.Oem6)
+					SimulateKeyUp(e, VirtualKeyCode.PRIOR);
+				else if (e.KeyCode == Keys.Oem5)
+					SimulateKeyUp(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.O)
+					SimulateKeyUp(e, VirtualKeyCode.UP);
+				else if (e.KeyCode == Keys.L)
+					SimulateKeyUp(e, VirtualKeyCode.DOWN);
+				else if (e.KeyCode == Keys.K)
+					SimulateKeyUp(e, VirtualKeyCode.LEFT);
+				else if (e.KeyCode == Keys.Oem1)
+					SimulateKeyUp(e, VirtualKeyCode.RIGHT);
+				else if (e.KeyCode == Keys.Space)
+					SimulateKeyUp(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
+				else if (e.KeyCode == Keys.P)
+					SimulateKeyUp(e, VirtualKeyCode.SNAPSHOT);
+				else if (e.KeyCode == Keys.OemPeriod)
+					SimulateKeyUp(e, VirtualKeyCode.F20);
+				else if (e.KeyCode == Keys.OemQuestion)
+					SimulateKeyUp(e, VirtualKeyCode.F21);
+				else if (e.KeyCode == Keys.Back)
+					SimulateKeyUp(e, VirtualKeyCode.DELETE);
+			}
+			else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
+				SimulateKeyUp(e, VirtualKeyCode.ESCAPE);
 		}
 
 		private void mouseHook_MouseWheel(object sender, MouseEventArgs e)
