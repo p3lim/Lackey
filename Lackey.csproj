@@ -51,6 +51,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SignKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MouseKeyboardActivityMonitor">
       <HintPath>lib\MouseKeyboardActivityMonitor.dll</HintPath>
