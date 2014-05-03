@@ -69,5 +69,47 @@ namespace Lackey {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MouseKeyboardActivityMonitor {
+            get {
+                object obj = ResourceManager.GetObject("MouseKeyboardActivityMonitor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MouseKeyboardActivityMonitor1 {
+            get {
+                object obj = ResourceManager.GetObject("MouseKeyboardActivityMonitor1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;doc&gt;
+        ///    &lt;assembly&gt;
+        ///        &lt;name&gt;MouseKeyboardActivityMonitor&lt;/name&gt;
+        ///    &lt;/assembly&gt;
+        ///    &lt;members&gt;
+        ///        &lt;member name=&quot;T:MouseKeyboardActivityMonitor.Controls.HookType&quot;&gt;
+        ///            &lt;summary&gt;
+        ///            Indicates which hooks to listen to application or global.
+        ///            &lt;/summary&gt;
+        ///        &lt;/member&gt;
+        ///        &lt;member name=&quot;F:MouseKeyboardActivityMonitor.Controls.HookType.Application&quot;&gt;
+        ///            &lt;summary&gt;
+        ///            Only events inside the application are monitored an [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string MouseKeyboardActivityMonitor2 {
+            get {
+                return ResourceManager.GetString("MouseKeyboardActivityMonitor2", resourceCulture);
+            }
+        }
     }
 }
