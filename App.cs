@@ -167,9 +167,17 @@ namespace Lackey
 			if (isMouseHeld)
 			{
 				if (e.Delta > 0)
+				{
 					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_UP);
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_UP);
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_UP);
+				}
 				else if (e.Delta < 0)
+				{
 					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_DOWN);
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_DOWN);
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_DOWN);
+				}
 			}
 		}
 
