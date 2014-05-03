@@ -26,6 +26,7 @@ namespace Lackey
 
 			trayIcon = new NotifyIcon();
 			trayIcon.Text = "Lackey";
+			trayIcon.Icon = Resources.Icon;
 			trayIcon.ContextMenu = trayMenu;
 			trayIcon.Visible = true;
 		}

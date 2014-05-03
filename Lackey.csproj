@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
