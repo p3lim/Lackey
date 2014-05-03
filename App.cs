@@ -1,4 +1,5 @@
-﻿using MouseKeyboardActivityMonitor;
+﻿using Microsoft.Win32;
+using MouseKeyboardActivityMonitor;
 using MouseKeyboardActivityMonitor.WinApi;
 using System;
 using System.Windows.Forms;
@@ -46,6 +47,7 @@ namespace Lackey
 			simulator = new InputSimulator();
 
 			trayMenu = new ContextMenu();
+			trayMenu.MenuItems.Add("Run on startup", ToggleStartup);
 			trayMenu.MenuItems.Add("Exit", OnExit);
 
 			trayIcon = new NotifyIcon();
@@ -191,6 +193,23 @@ namespace Lackey
 		{
 			if (e.Button == MouseButtons.Right)
 				isMouseHeld = false;
+		}
+
+		private void ToggleStartup(object sender, EventArgs e)
+		{
+			RegistryKey key = Registry.CurrentUser;
+			RegistryKey group = key.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+
+			if (group.GetValue("Lackey") != null)
+			{
+				group.DeleteValue("Lackey");
+				MessageBox.Show("No longer running Lackey on startup");
+			}
+			else
+			{
+				group.SetValue("Lackey", Application.ExecutablePath, RegistryValueKind.String);
+				MessageBox.Show("Now running Lackey on startup, yay!");
+			}
 		}
 
 		public void OnExit(object sender, EventArgs e)
