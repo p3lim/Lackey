@@ -2,6 +2,8 @@
 using MouseKeyboardActivityMonitor.WinApi;
 using System;
 using System.Windows.Forms;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace Lackey
 {
@@ -14,6 +16,7 @@ namespace Lackey
 		}
 
 		private KeyboardHookListener keyboardHook;
+		private InputSimulator simulator;
 
 		public bool isFnHeld;
 
@@ -32,6 +35,8 @@ namespace Lackey
 			keyboardHook.KeyDown += keyboardHook_KeyDown;
 			keyboardHook.KeyUp += keyboardHook_KeyUp;
 
+			simulator = new InputSimulator();
+
 			trayMenu = new ContextMenu();
 			trayMenu.MenuItems.Add("Exit", OnExit);
 
@@ -42,10 +47,105 @@ namespace Lackey
 			trayIcon.Visible = true;
 		}
 
+		private void SimulateText(KeyEventArgs e, char p)
+		{
+			e.SuppressKeyPress = true;
+			simulator.Keyboard.TextEntry(p);
+		}
+
+		private void SimulateKey(KeyEventArgs e, VirtualKeyCode virtualKeyCode)
+		{
+			e.SuppressKeyPress = true;
+			simulator.Keyboard.KeyDown(virtualKeyCode);
+		}
+
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyValue == 255)
 				isFnHeld = true;
+
+			if (isFnHeld)
+			{
+				if (e.KeyCode == Keys.Z)
+				{
+					if (e.Shift)
+						SimulateText(e, '\u00c6');
+					else
+						SimulateText(e, '\u00e6');
+				}
+				else if (e.KeyCode == Keys.X)
+				{
+					if (e.Shift)
+						SimulateText(e, '\u00d8');
+					else
+						SimulateText(e, '\u00f8');
+				}
+				else if (e.KeyCode == Keys.C)
+				{
+					if (e.Shift)
+						SimulateText(e, '\u00c5');
+					else
+						SimulateText(e, '\u00e5');
+				}
+				else if (e.KeyCode == Keys.D3 && e.Shift)
+					SimulateText(e, '\u00a3');
+				else if (e.KeyCode == Keys.D4 && e.Shift)
+					SimulateText(e, '\u20ac');
+				else if (e.KeyCode == Keys.Escape && !e.Shift)
+					SimulateKey(e, VirtualKeyCode.OEM_3);
+				else if (e.KeyCode == Keys.D1)
+					SimulateKey(e, VirtualKeyCode.F1);
+				else if (e.KeyCode == Keys.D2)
+					SimulateKey(e, VirtualKeyCode.F2);
+				else if (e.KeyCode == Keys.D3)
+					SimulateKey(e, VirtualKeyCode.F3);
+				else if (e.KeyCode == Keys.D4)
+					SimulateKey(e, VirtualKeyCode.F4);
+				else if (e.KeyCode == Keys.D5)
+					SimulateKey(e, VirtualKeyCode.F5);
+				else if (e.KeyCode == Keys.D6)
+					SimulateKey(e, VirtualKeyCode.F6);
+				else if (e.KeyCode == Keys.D7)
+					SimulateKey(e, VirtualKeyCode.F7);
+				else if (e.KeyCode == Keys.D8)
+					SimulateKey(e, VirtualKeyCode.F8);
+				else if (e.KeyCode == Keys.D9)
+					SimulateKey(e, VirtualKeyCode.F9);
+				else if (e.KeyCode == Keys.D0)
+					SimulateKey(e, VirtualKeyCode.F10);
+				else if (e.KeyCode == Keys.OemMinus)
+					SimulateKey(e, VirtualKeyCode.F11);
+				else if (e.KeyCode == Keys.Oemplus)
+					SimulateKey(e, VirtualKeyCode.F12);
+				else if (e.KeyCode == Keys.OemOpenBrackets)
+					SimulateKey(e, VirtualKeyCode.HOME);
+				else if (e.KeyCode == Keys.Oem7)
+					SimulateKey(e, VirtualKeyCode.END);
+				else if (e.KeyCode == Keys.Oem6)
+					SimulateKey(e, VirtualKeyCode.PRIOR);
+				else if (e.KeyCode == Keys.Oem5)
+					SimulateKey(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.O)
+					SimulateKey(e, VirtualKeyCode.UP);
+				else if (e.KeyCode == Keys.L)
+					SimulateKey(e, VirtualKeyCode.DOWN);
+				else if (e.KeyCode == Keys.K)
+					SimulateKey(e, VirtualKeyCode.LEFT);
+				else if (e.KeyCode == Keys.Oem1)
+					SimulateKey(e, VirtualKeyCode.RIGHT);
+				else if (e.KeyCode == Keys.Space)
+					SimulateKey(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
+				else if (e.KeyCode == Keys.P)
+					SimulateKey(e, VirtualKeyCode.SNAPSHOT);
+				else if (e.KeyCode == Keys.OemPeriod)
+					SimulateKey(e, VirtualKeyCode.F20);
+				else if (e.KeyCode == Keys.OemQuestion)
+					SimulateKey(e, VirtualKeyCode.F21);
+				else if (e.KeyCode == Keys.Back)
+					SimulateKey(e, VirtualKeyCode.DELETE);
+			}
+			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
+				SimulateKey(e, VirtualKeyCode.OEM_3);
 		}
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)

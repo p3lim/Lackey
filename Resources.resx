@@ -130,4 +130,13 @@
   <data name="MouseKeyboardActivityMonitor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>lib\MouseKeyboardActivityMonitor.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="WindowsInput" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>lib\WindowsInput.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WindowsInput1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>lib\WindowsInput.pdb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WindowsInput2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>lib\WindowsInput.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

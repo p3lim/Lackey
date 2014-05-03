@@ -39,6 +39,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsInput">
+      <HintPath>lib\WindowsInput.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs">
@@ -64,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\MouseKeyboardActivityMonitor.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="lib\WindowsInput.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\WindowsInput.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

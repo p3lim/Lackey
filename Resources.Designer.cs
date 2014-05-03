@@ -111,5 +111,47 @@ namespace Lackey {
                 return ResourceManager.GetString("MouseKeyboardActivityMonitor2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WindowsInput {
+            get {
+                object obj = ResourceManager.GetObject("WindowsInput", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] WindowsInput1 {
+            get {
+                object obj = ResourceManager.GetObject("WindowsInput1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;doc&gt;
+        ///    &lt;assembly&gt;
+        ///        &lt;name&gt;WindowsInput&lt;/name&gt;
+        ///    &lt;/assembly&gt;
+        ///    &lt;members&gt;
+        ///        &lt;member name=&quot;T:WindowsInput.IInputSimulator&quot;&gt;
+        ///            &lt;summary&gt;
+        ///            The contract for a service that simulates Keyboard and Mouse input and Hardware Input Device state detection for the Windows Platform.
+        ///            &lt;/summary&gt;
+        ///        &lt;/member&gt;
+        ///        &lt;member name=&quot;P:WindowsInput.IInputSimulator.Keyboard&quot;&gt;
+        ///            &lt;summary&gt;
+        ///            Gets the &lt;see cref=&quot;T:Windows [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WindowsInput2 {
+            get {
+                return ResourceManager.GetString("WindowsInput2", resourceCulture);
+            }
+        }
     }
 }
