@@ -16,9 +16,11 @@ namespace Lackey
 		}
 
 		private KeyboardHookListener keyboardHook;
+		private MouseHookListener mouseHook;
 		private InputSimulator simulator;
 
 		public bool isFnHeld;
+		public bool isMouseHeld;
 
 		private NotifyIcon trayIcon;
 		private ContextMenu trayMenu;
@@ -34,6 +36,11 @@ namespace Lackey
 			keyboardHook.Enabled = true;
 			keyboardHook.KeyDown += keyboardHook_KeyDown;
 			keyboardHook.KeyUp += keyboardHook_KeyUp;
+
+			mouseHook = new MouseHookListener(new GlobalHooker());
+			mouseHook.Enabled = true;
+			mouseHook.MouseDown += mouseHook_MouseDown;
+			mouseHook.MouseUp += mouseHook_MouseUp;
 
 			simulator = new InputSimulator();
 
@@ -152,6 +159,18 @@ namespace Lackey
 		{
 			if (e.KeyValue == 255)
 				isFnHeld = false;
+		}
+
+		private void mouseHook_MouseDown(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+				isMouseHeld = true;
+		}
+
+		private void mouseHook_MouseUp(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Right)
+				isMouseHeld = false;
 		}
 
 		public void OnExit(object sender, EventArgs e)
