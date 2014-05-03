@@ -39,6 +39,7 @@ namespace Lackey
 
 			mouseHook = new MouseHookListener(new GlobalHooker());
 			mouseHook.Enabled = true;
+			mouseHook.MouseWheel += mouseHook_MouseWheel;
 			mouseHook.MouseDown += mouseHook_MouseDown;
 			mouseHook.MouseUp += mouseHook_MouseUp;
 
@@ -159,6 +160,17 @@ namespace Lackey
 		{
 			if (e.KeyValue == 255)
 				isFnHeld = false;
+		}
+
+		private void mouseHook_MouseWheel(object sender, MouseEventArgs e)
+		{
+			if (isMouseHeld)
+			{
+				if (e.Delta > 0)
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_UP);
+				else if (e.Delta < 0)
+					simulator.Keyboard.KeyDown(VirtualKeyCode.VOLUME_DOWN);
+			}
 		}
 
 		private void mouseHook_MouseDown(object sender, MouseEventArgs e)
