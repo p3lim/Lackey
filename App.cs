@@ -77,16 +77,31 @@ namespace Lackey
 			simulator.Keyboard.TextEntry(p);
 		}
 
-		private void SimulateKey(KeyEventArgs e, VirtualKeyCode virtualKeyCode)
+		private void SimulateKeyDown(KeyEventArgs e, VirtualKeyCode virtualKeyCode)
 		{
 			e.SuppressKeyPress = true;
 			simulator.Keyboard.KeyDown(virtualKeyCode);
 		}
 
+		private void SimulateKeyUp(KeyEventArgs e, VirtualKeyCode virtualKeyCode)
+		{
+			e.SuppressKeyPress = true;
+			simulator.Keyboard.KeyUp(virtualKeyCode);
+		}
+
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyValue == 255)
+			if (e.KeyCode == Keys.LControlKey)
+			{
+				e.SuppressKeyPress = true;
 				isFnHeld = true;
+			}
+
+			if (e.KeyCode == Keys.Capital)
+				SimulateKeyDown(e, VirtualKeyCode.RCONTROL);
+
+			if (e.KeyCode == Keys.RMenu)
+				SimulateKeyDown(e, VirtualKeyCode.LCONTROL);
 
 			if (isFnHeld)
 			{
@@ -116,66 +131,74 @@ namespace Lackey
 				else if (e.KeyCode == Keys.D4 && e.Shift)
 					SimulateText(e, '\u20ac');
 				else if (e.KeyCode == Keys.Escape && !e.Shift)
-					SimulateKey(e, VirtualKeyCode.OEM_3);
+					SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 				else if (e.KeyCode == Keys.D1)
-					SimulateKey(e, VirtualKeyCode.F1);
+					SimulateKeyDown(e, VirtualKeyCode.F1);
 				else if (e.KeyCode == Keys.D2)
-					SimulateKey(e, VirtualKeyCode.F2);
+					SimulateKeyDown(e, VirtualKeyCode.F2);
 				else if (e.KeyCode == Keys.D3)
-					SimulateKey(e, VirtualKeyCode.F3);
+					SimulateKeyDown(e, VirtualKeyCode.F3);
 				else if (e.KeyCode == Keys.D4)
-					SimulateKey(e, VirtualKeyCode.F4);
+					SimulateKeyDown(e, VirtualKeyCode.F4);
 				else if (e.KeyCode == Keys.D5)
-					SimulateKey(e, VirtualKeyCode.F5);
+					SimulateKeyDown(e, VirtualKeyCode.F5);
 				else if (e.KeyCode == Keys.D6)
-					SimulateKey(e, VirtualKeyCode.F6);
+					SimulateKeyDown(e, VirtualKeyCode.F6);
 				else if (e.KeyCode == Keys.D7)
-					SimulateKey(e, VirtualKeyCode.F7);
+					SimulateKeyDown(e, VirtualKeyCode.F7);
 				else if (e.KeyCode == Keys.D8)
-					SimulateKey(e, VirtualKeyCode.F8);
+					SimulateKeyDown(e, VirtualKeyCode.F8);
 				else if (e.KeyCode == Keys.D9)
-					SimulateKey(e, VirtualKeyCode.F9);
+					SimulateKeyDown(e, VirtualKeyCode.F9);
 				else if (e.KeyCode == Keys.D0)
-					SimulateKey(e, VirtualKeyCode.F10);
+					SimulateKeyDown(e, VirtualKeyCode.F10);
 				else if (e.KeyCode == Keys.OemMinus)
-					SimulateKey(e, VirtualKeyCode.F11);
+					SimulateKeyDown(e, VirtualKeyCode.F11);
 				else if (e.KeyCode == Keys.Oemplus)
-					SimulateKey(e, VirtualKeyCode.F12);
+					SimulateKeyDown(e, VirtualKeyCode.F12);
 				else if (e.KeyCode == Keys.OemOpenBrackets)
-					SimulateKey(e, VirtualKeyCode.HOME);
+					SimulateKeyDown(e, VirtualKeyCode.HOME);
 				else if (e.KeyCode == Keys.Oem7)
-					SimulateKey(e, VirtualKeyCode.END);
+					SimulateKeyDown(e, VirtualKeyCode.END);
 				else if (e.KeyCode == Keys.Oem6)
-					SimulateKey(e, VirtualKeyCode.PRIOR);
+					SimulateKeyDown(e, VirtualKeyCode.PRIOR);
 				else if (e.KeyCode == Keys.Oem5)
-					SimulateKey(e, VirtualKeyCode.NEXT);
+					SimulateKeyDown(e, VirtualKeyCode.NEXT);
 				else if (e.KeyCode == Keys.O)
-					SimulateKey(e, VirtualKeyCode.UP);
+					SimulateKeyDown(e, VirtualKeyCode.UP);
 				else if (e.KeyCode == Keys.L)
-					SimulateKey(e, VirtualKeyCode.DOWN);
+					SimulateKeyDown(e, VirtualKeyCode.DOWN);
 				else if (e.KeyCode == Keys.K)
-					SimulateKey(e, VirtualKeyCode.LEFT);
+					SimulateKeyDown(e, VirtualKeyCode.LEFT);
 				else if (e.KeyCode == Keys.Oem1)
-					SimulateKey(e, VirtualKeyCode.RIGHT);
+					SimulateKeyDown(e, VirtualKeyCode.RIGHT);
 				else if (e.KeyCode == Keys.Space)
-					SimulateKey(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
+					SimulateKeyDown(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
 				else if (e.KeyCode == Keys.P)
-					SimulateKey(e, VirtualKeyCode.SNAPSHOT);
+					SimulateKeyDown(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
-					SimulateKey(e, VirtualKeyCode.F20);
+					SimulateKeyDown(e, VirtualKeyCode.F20);
 				else if (e.KeyCode == Keys.OemQuestion)
-					SimulateKey(e, VirtualKeyCode.F21);
+					SimulateKeyDown(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
-					SimulateKey(e, VirtualKeyCode.DELETE);
-			}
-			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
-				SimulateKey(e, VirtualKeyCode.OEM_3);
+					SimulateKeyDown(e, VirtualKeyCode.DELETE);
+			} else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
+				SimulateKeyDown(e, VirtualKeyCode.ESCAPE);
 		}
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyValue == 255)
+			if (e.KeyCode == Keys.LControlKey)
+			{
+				e.SuppressKeyPress = true;
 				isFnHeld = false;
+			}
+
+			if (e.KeyCode == Keys.Capital)
+				SimulateKeyUp(e, VirtualKeyCode.RCONTROL);
+
+			if (e.KeyCode == Keys.RMenu)
+				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
 		}
 
 		private void mouseHook_MouseWheel(object sender, MouseEventArgs e)
