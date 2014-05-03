@@ -44,5 +44,13 @@ namespace Lackey
 
 			base.Dispose(disposing);
 		}
+
+		protected override void OnLoad(EventArgs e)
+		{
+			Visible = false;
+			ShowInTaskbar = false;
+
+			base.OnLoad(e);
+		}
 	}
 }
