@@ -101,7 +101,7 @@ namespace Lackey
 				SimulateKeyDown(e, VirtualKeyCode.RCONTROL);
 			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyDown(e, VirtualKeyCode.LCONTROL);
-			if (e.KeyCode == Keys.OemBackslash)
+			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
@@ -199,7 +199,7 @@ namespace Lackey
 				SimulateKeyUp(e, VirtualKeyCode.RCONTROL);
 			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
-			if (e.KeyCode == Keys.OemBackslash)
+			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
