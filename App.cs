@@ -23,6 +23,7 @@ namespace Lackey
 
 		public bool isFnHeld;
 		public bool isMouseHeld;
+		public bool layerUsed;
 
 		private NotifyIcon trayIcon;
 		private ContextMenu trayMenu;
@@ -73,12 +74,14 @@ namespace Lackey
 
 		private void SimulateText(KeyEventArgs e, char p)
 		{
+			layerUsed = true;
 			e.SuppressKeyPress = true;
 			simulator.Keyboard.TextEntry(p);
 		}
 
 		private void SimulateKeyDown(KeyEventArgs e, VirtualKeyCode virtualKeyCode)
 		{
+			layerUsed = true;
 			e.SuppressKeyPress = true;
 			simulator.Keyboard.KeyDown(virtualKeyCode);
 		}
@@ -91,15 +94,14 @@ namespace Lackey
 
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.LControlKey)
+			if (e.KeyCode == Keys.Space)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = true;
 			}
 
+			// Might want to do this in the registry instead
 			if (e.KeyCode == Keys.Capital)
-				SimulateKeyDown(e, VirtualKeyCode.RCONTROL);
-			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyDown(e, VirtualKeyCode.LCONTROL);
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
@@ -189,21 +191,24 @@ namespace Lackey
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.LControlKey)
+			if (e.KeyCode == Keys.Space)
 			{
-				e.SuppressKeyPress = true;
 				isFnHeld = false;
+
+				if(layerUsed)
+					e.SuppressKeyPress = true;
 			}
 
+			// Might want to do this in the registry instead
 			if (e.KeyCode == Keys.Capital)
-				SimulateKeyUp(e, VirtualKeyCode.RCONTROL);
-			if (e.KeyCode == Keys.RMenu)
 				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
-			if (isFnHeld)
+			if (layerUsed)
 			{
+				layerUsed = false;
+
 				if (e.KeyCode == Keys.Z)
 					e.SuppressKeyPress = true;
 				else if (e.KeyCode == Keys.X)
