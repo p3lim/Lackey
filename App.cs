@@ -159,24 +159,22 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.F11);
 				else if (e.KeyCode == Keys.Oemplus)
 					SimulateKeyDown(e, VirtualKeyCode.F12);
-				else if (e.KeyCode == Keys.OemOpenBrackets)
+				else if (e.KeyCode == Keys.U)
 					SimulateKeyDown(e, VirtualKeyCode.HOME);
-				else if (e.KeyCode == Keys.Oem7)
-					SimulateKeyDown(e, VirtualKeyCode.END);
-				else if (e.KeyCode == Keys.Oem6)
-					SimulateKeyDown(e, VirtualKeyCode.PRIOR);
-				else if (e.KeyCode == Keys.Oem5)
-					SimulateKeyDown(e, VirtualKeyCode.NEXT);
 				else if (e.KeyCode == Keys.O)
+					SimulateKeyDown(e, VirtualKeyCode.END);
+				else if (e.KeyCode == Keys.H)
+					SimulateKeyDown(e, VirtualKeyCode.PRIOR);
+				else if (e.KeyCode == Keys.N)
+					SimulateKeyDown(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.I)
 					SimulateKeyDown(e, VirtualKeyCode.UP);
-				else if (e.KeyCode == Keys.L)
-					SimulateKeyDown(e, VirtualKeyCode.DOWN);
 				else if (e.KeyCode == Keys.K)
+					SimulateKeyDown(e, VirtualKeyCode.DOWN);
+				else if (e.KeyCode == Keys.J)
 					SimulateKeyDown(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem1)
+				else if (e.KeyCode == Keys.L)
 					SimulateKeyDown(e, VirtualKeyCode.RIGHT);
-				else if (e.KeyCode == Keys.Space)
-					SimulateKeyDown(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyDown(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
@@ -185,6 +183,8 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyDown(e, VirtualKeyCode.DELETE);
+				else if (e.KeyCode == Keys.B)
+					SimulateKeyDown(e, VirtualKeyCode.SPACE);
 			} else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
 				SimulateKeyDown(e, VirtualKeyCode.ESCAPE);
 		}
@@ -245,24 +245,22 @@ namespace Lackey
 					SimulateKeyUp(e, VirtualKeyCode.F11);
 				else if (e.KeyCode == Keys.Oemplus)
 					SimulateKeyUp(e, VirtualKeyCode.F12);
-				else if (e.KeyCode == Keys.OemOpenBrackets)
+				else if (e.KeyCode == Keys.U)
 					SimulateKeyUp(e, VirtualKeyCode.HOME);
-				else if (e.KeyCode == Keys.Oem7)
-					SimulateKeyUp(e, VirtualKeyCode.END);
-				else if (e.KeyCode == Keys.Oem6)
-					SimulateKeyUp(e, VirtualKeyCode.PRIOR);
-				else if (e.KeyCode == Keys.Oem5)
-					SimulateKeyUp(e, VirtualKeyCode.NEXT);
 				else if (e.KeyCode == Keys.O)
+					SimulateKeyUp(e, VirtualKeyCode.END);
+				else if (e.KeyCode == Keys.H)
+					SimulateKeyUp(e, VirtualKeyCode.PRIOR);
+				else if (e.KeyCode == Keys.N)
+					SimulateKeyUp(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.I)
 					SimulateKeyUp(e, VirtualKeyCode.UP);
-				else if (e.KeyCode == Keys.L)
-					SimulateKeyUp(e, VirtualKeyCode.DOWN);
 				else if (e.KeyCode == Keys.K)
+					SimulateKeyUp(e, VirtualKeyCode.DOWN);
+				else if (e.KeyCode == Keys.J)
 					SimulateKeyUp(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem1)
+				else if (e.KeyCode == Keys.L)
 					SimulateKeyUp(e, VirtualKeyCode.RIGHT);
-				else if (e.KeyCode == Keys.Space)
-					SimulateKeyUp(e, VirtualKeyCode.MEDIA_PLAY_PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyUp(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
@@ -271,6 +269,8 @@ namespace Lackey
 					SimulateKeyUp(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyUp(e, VirtualKeyCode.DELETE);
+				else if (e.KeyCode == Keys.B)
+					SimulateKeyUp(e, VirtualKeyCode.SPACE);
 			}
 			else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
 				SimulateKeyUp(e, VirtualKeyCode.ESCAPE);
