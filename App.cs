@@ -199,10 +199,12 @@ namespace Lackey
 		{
 			if (e.KeyCode == Keys.Space && !simulated)
 			{
-				isFnHeld = false;
+				if (!layerUsed)
+					simulator.Keyboard.KeyPress(VirtualKeyCode.SPACE);
 
-				if(layerUsed)
-					e.SuppressKeyPress = true;
+				layerUsed = false;
+				isFnHeld = false;
+				e.SuppressKeyPress = true;
 			}
 
 			simulated = false;
@@ -215,8 +217,6 @@ namespace Lackey
 
 			if (layerUsed)
 			{
-				layerUsed = false;
-
 				if (e.KeyCode == Keys.Z)
 					e.SuppressKeyPress = true;
 				else if (e.KeyCode == Keys.X)
