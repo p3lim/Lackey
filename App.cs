@@ -91,16 +91,12 @@ namespace Lackey
 
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.LControlKey)
+			if (e.KeyCode == Keys.CapsLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = true;
 			}
 
-			if (e.KeyCode == Keys.Capital)
-				SimulateKeyDown(e, VirtualKeyCode.RCONTROL);
-			if (e.KeyCode == Keys.RMenu)
-				SimulateKeyDown(e, VirtualKeyCode.LCONTROL);
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
@@ -183,22 +179,18 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyDown(e, VirtualKeyCode.DELETE);
-			} else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
-				SimulateKeyDown(e, VirtualKeyCode.ESCAPE);
+			} else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
+				SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 		}
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.LControlKey)
+			if (e.KeyCode == Keys.CapsLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = false;
 			}
 
-			if (e.KeyCode == Keys.Capital)
-				SimulateKeyUp(e, VirtualKeyCode.RCONTROL);
-			if (e.KeyCode == Keys.RMenu)
-				SimulateKeyUp(e, VirtualKeyCode.LCONTROL);
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
@@ -267,8 +259,8 @@ namespace Lackey
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyUp(e, VirtualKeyCode.DELETE);
 			}
-			else if (e.KeyCode == Keys.Oemtilde && (!e.Shift || e.Control))
-				SimulateKeyUp(e, VirtualKeyCode.ESCAPE);
+			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
+				SimulateKeyUp(e, VirtualKeyCode.OEM_3);
 		}
 
 		private void mouseHook_MouseWheel(object sender, MouseEventArgs e)
