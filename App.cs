@@ -168,6 +168,8 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.PRIOR);
 				else if (e.KeyCode == Keys.Oem5)
 					SimulateKeyDown(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.L)
+					SimulateKeyDown(e, VirtualKeyCode.PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyDown(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
@@ -255,6 +257,8 @@ namespace Lackey
 					SimulateKeyUp(e, VirtualKeyCode.PRIOR);
 				else if (e.KeyCode == Keys.Oem5)
 					SimulateKeyUp(e, VirtualKeyCode.NEXT);
+				else if (e.KeyCode == Keys.L)
+					SimulateKeyUp(e, VirtualKeyCode.PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyUp(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
