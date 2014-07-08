@@ -130,9 +130,9 @@ namespace Lackey
 					else
 						SimulateText(e, '\u00e5');
 				}
-				else if (e.KeyCode == Keys.D3 && e.Shift)
+				else if (e.KeyCode == Keys.E)
 					SimulateText(e, '\u00a3');
-				else if (e.KeyCode == Keys.D4 && e.Shift)
+				else if (e.KeyCode == Keys.R)
 					SimulateText(e, '\u20ac');
 				else if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyDown(e, VirtualKeyCode.OEM_3);
@@ -219,9 +219,9 @@ namespace Lackey
 					e.SuppressKeyPress = true;
 				else if (e.KeyCode == Keys.C)
 					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.D3 && e.Shift)
+				else if (e.KeyCode == Keys.E)
 					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.D4 && e.Shift)
+				else if (e.KeyCode == Keys.R)
 					e.SuppressKeyPress = true;
 				else if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyUp(e, VirtualKeyCode.OEM_3);
