@@ -9,4 +9,4 @@ It also adds volume control to the mouse (hold the right mouse button and scroll
 
 Here is a preview of how it functions when run:
 
-![](http://i.imgur.com/nHuEs0c.png)
+![](http://i.imgur.com/0uCSJMf.png)

@@ -104,37 +104,13 @@ namespace Lackey
 				isAnHeld = true;
 			}
 
+			// Mute the key to the right of LShift
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
 			{
-				if (e.KeyCode == Keys.Z)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00c6');
-					else
-						SimulateText(e, '\u00e6');
-				}
-				else if (e.KeyCode == Keys.X)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00d8');
-					else
-						SimulateText(e, '\u00f8');
-				}
-				else if (e.KeyCode == Keys.C)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00c5');
-					else
-						SimulateText(e, '\u00e5');
-				}
-				else if (e.KeyCode == Keys.E)
-					SimulateText(e, '\u00a3');
-				else if (e.KeyCode == Keys.R)
-					SimulateText(e, '\u20ac');
-				else if (e.KeyCode == Keys.Escape && !e.Shift)
+				if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 				else if (e.KeyCode == Keys.D1)
 					SimulateKeyDown(e, VirtualKeyCode.F1);
@@ -208,22 +184,13 @@ namespace Lackey
 				isAnHeld = false;
 			}
 
+			// Mute the key to the right of LShift
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
 			{
-				if (e.KeyCode == Keys.Z)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.X)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.C)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.E)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.R)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.Escape && !e.Shift)
+				if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyUp(e, VirtualKeyCode.OEM_3);
 				else if (e.KeyCode == Keys.D1)
 					SimulateKeyUp(e, VirtualKeyCode.F1);
