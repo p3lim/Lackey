@@ -97,10 +97,6 @@ namespace Lackey
 				isFnHeld = true;
 			}
 
-			// Mute the key to the right of LShift
-			if (e.KeyValue == 226)
-				e.SuppressKeyPress = true;
-
 			if (isFnHeld)
 			{
 				if (e.KeyCode == Keys.Escape && !e.Shift)
@@ -159,10 +155,6 @@ namespace Lackey
 				e.SuppressKeyPress = true;
 				isFnHeld = false;
 			}
-
-			// Mute the key to the right of LShift
-			if (e.KeyValue == 226)
-				e.SuppressKeyPress = true;
 
 			if (isFnHeld)
 			{
