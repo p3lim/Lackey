@@ -91,43 +91,15 @@ namespace Lackey
 
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.CapsLock)
+			if (e.KeyCode == Keys.NumLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = true;
 			}
 
-			if (e.KeyValue == 226)
-				e.SuppressKeyPress = true;
-
 			if (isFnHeld)
 			{
-				if (e.KeyCode == Keys.Z)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00c6');
-					else
-						SimulateText(e, '\u00e6');
-				}
-				else if (e.KeyCode == Keys.X)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00d8');
-					else
-						SimulateText(e, '\u00f8');
-				}
-				else if (e.KeyCode == Keys.C)
-				{
-					if (e.Shift)
-						SimulateText(e, '\u00c5');
-					else
-						SimulateText(e, '\u00e5');
-				}
-				else if (e.KeyCode == Keys.D3 && e.Shift)
-					SimulateText(e, '\u00a3');
-				else if (e.KeyCode == Keys.D4 && e.Shift)
-					SimulateText(e, '\u20ac');
-				else if (e.KeyCode == Keys.Escape && !e.Shift)
+				if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 				else if (e.KeyCode == Keys.D1)
 					SimulateKeyDown(e, VirtualKeyCode.F1);
@@ -161,14 +133,8 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.PRIOR);
 				else if (e.KeyCode == Keys.Oem5)
 					SimulateKeyDown(e, VirtualKeyCode.NEXT);
-				else if (e.KeyCode == Keys.O)
-					SimulateKeyDown(e, VirtualKeyCode.UP);
 				else if (e.KeyCode == Keys.L)
-					SimulateKeyDown(e, VirtualKeyCode.DOWN);
-				else if (e.KeyCode == Keys.K)
-					SimulateKeyDown(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem1)
-					SimulateKeyDown(e, VirtualKeyCode.RIGHT);
+					SimulateKeyDown(e, VirtualKeyCode.PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyDown(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)
@@ -177,34 +143,22 @@ namespace Lackey
 					SimulateKeyDown(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyDown(e, VirtualKeyCode.DELETE);
-			} else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
+			}
+			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
 				SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 		}
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.CapsLock)
+			if (e.KeyCode == Keys.NumLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = false;
 			}
 
-			if (e.KeyValue == 226)
-				e.SuppressKeyPress = true;
-
 			if (isFnHeld)
 			{
-				if (e.KeyCode == Keys.Z)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.X)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.C)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.D3 && e.Shift)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.D4 && e.Shift)
-					e.SuppressKeyPress = true;
-				else if (e.KeyCode == Keys.Escape && !e.Shift)
+				if (e.KeyCode == Keys.Escape && !e.Shift)
 					SimulateKeyUp(e, VirtualKeyCode.OEM_3);
 				else if (e.KeyCode == Keys.D1)
 					SimulateKeyUp(e, VirtualKeyCode.F1);
@@ -238,14 +192,8 @@ namespace Lackey
 					SimulateKeyUp(e, VirtualKeyCode.PRIOR);
 				else if (e.KeyCode == Keys.Oem5)
 					SimulateKeyUp(e, VirtualKeyCode.NEXT);
-				else if (e.KeyCode == Keys.O)
-					SimulateKeyUp(e, VirtualKeyCode.UP);
 				else if (e.KeyCode == Keys.L)
-					SimulateKeyUp(e, VirtualKeyCode.DOWN);
-				else if (e.KeyCode == Keys.K)
-					SimulateKeyUp(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem1)
-					SimulateKeyUp(e, VirtualKeyCode.RIGHT);
+					SimulateKeyUp(e, VirtualKeyCode.PAUSE);
 				else if (e.KeyCode == Keys.P)
 					SimulateKeyUp(e, VirtualKeyCode.SNAPSHOT);
 				else if (e.KeyCode == Keys.OemPeriod)

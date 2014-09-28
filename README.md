@@ -5,8 +5,10 @@ My keyboard's controller doesn't support custom firmware, so I made this little 
 
 It also adds volume control to the mouse (hold the right mouse button and scroll)
 
+This works in conjunction with my personal [keyboard remapping](https://gist.github.com/p3lim/a53293ca7888c3a241d5)
+
 ======
 
 Here is a preview of how it functions when run:
 
-![](http://i.imgur.com/FfdHPn9.png)
+![](http://i.imgur.com/0uCSJMf.png)
