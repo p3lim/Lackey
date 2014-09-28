@@ -21,7 +21,6 @@ namespace Lackey
 		private MouseHookListener mouseHook;
 		private InputSimulator simulator;
 
-		public bool isAnHeld;
 		public bool isFnHeld;
 		public bool isMouseHeld;
 
@@ -98,12 +97,6 @@ namespace Lackey
 				isFnHeld = true;
 			}
 
-			if (e.KeyCode == Keys.NumLock)
-			{
-				e.SuppressKeyPress = true;
-				isAnHeld = true;
-			}
-
 			// Mute the key to the right of LShift
 			if (e.KeyValue == 226)
 				e.SuppressKeyPress = true;
@@ -155,17 +148,6 @@ namespace Lackey
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyDown(e, VirtualKeyCode.DELETE);
 			}
-			else if (isAnHeld)
-			{
-				if (e.KeyCode == Keys.OemOpenBrackets)
-					SimulateKeyDown(e, VirtualKeyCode.UP);
-				else if (e.KeyCode == Keys.Oem7)
-					SimulateKeyDown(e, VirtualKeyCode.DOWN);
-				else if (e.KeyCode == Keys.Oem1)
-					SimulateKeyDown(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem5)
-					SimulateKeyDown(e, VirtualKeyCode.RIGHT);
-			}
 			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
 				SimulateKeyDown(e, VirtualKeyCode.OEM_3);
 		}
@@ -176,12 +158,6 @@ namespace Lackey
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = false;
-			}
-
-			if (e.KeyCode == Keys.NumLock)
-			{
-				e.SuppressKeyPress = true;
-				isAnHeld = false;
 			}
 
 			// Mute the key to the right of LShift
@@ -234,17 +210,6 @@ namespace Lackey
 					SimulateKeyUp(e, VirtualKeyCode.F21);
 				else if (e.KeyCode == Keys.Back)
 					SimulateKeyUp(e, VirtualKeyCode.DELETE);
-			}
-			else if (isAnHeld)
-			{
-				if (e.KeyCode == Keys.OemOpenBrackets)
-					SimulateKeyUp(e, VirtualKeyCode.UP);
-				else if (e.KeyCode == Keys.Oem7)
-					SimulateKeyUp(e, VirtualKeyCode.DOWN);
-				else if (e.KeyCode == Keys.Oem1)
-					SimulateKeyUp(e, VirtualKeyCode.LEFT);
-				else if (e.KeyCode == Keys.Oem5)
-					SimulateKeyUp(e, VirtualKeyCode.RIGHT);
 			}
 			else if (e.KeyCode == Keys.Escape && e.Shift && !e.Control)
 				SimulateKeyUp(e, VirtualKeyCode.OEM_3);
