@@ -91,7 +91,7 @@ namespace Lackey
 
 		private void keyboardHook_KeyDown(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.CapsLock)
+			if (e.KeyCode == Keys.NumLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = true;
@@ -150,7 +150,7 @@ namespace Lackey
 
 		private void keyboardHook_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.CapsLock)
+			if (e.KeyCode == Keys.NumLock)
 			{
 				e.SuppressKeyPress = true;
 				isFnHeld = false;
