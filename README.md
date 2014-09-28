@@ -11,4 +11,4 @@ This works in conjunction with my personal [keyboard remapping](https://gist.git
 
 Here is a preview of how it functions when run:
 
-![](http://i.imgur.com/0uCSJMf.png)
+![](http://i.imgur.com/MW43Qkx.png)
